@@ -1,11 +1,12 @@
 import re
-import json
 from datetime import datetime
 from itertools import chain
 from .misc import route_region
 from .trait import Traits
 
+
 class MatchDto:
+
     def __init__(self, match: dict):
         self.data = match
         self.metadata = MetadataDto(match['metadata'])
@@ -23,6 +24,7 @@ class MatchDto:
 
 
 class MetadataDto:
+
     def __init__(self, data: dict):
         self.data_version = data['data_version']
         self.match_id = data['match_id']
@@ -42,7 +44,9 @@ class MetadataDto:
         """Get routing region from match_id"""
         return route_region(self.region)
 
+
 class InfoDto:
+
     def __init__(self, data: dict):
         self.game_datetime = data['game_datetime']
         self.game_length = data['game_length']
@@ -80,7 +84,7 @@ class InfoDto:
 
     def eliminations(self, pct=False):
         """Return a dict of containing all players elimination time
-        
+
         Args:
             pct (bool): Return value as percentage
         """
@@ -109,7 +113,7 @@ class InfoDto:
 
     def players_units(self):
         """Return a list of UnitDto
-        
+
         Use for parsing all unit info
 
         """
@@ -135,6 +139,7 @@ class InfoDto:
 
 
 class ParticipantDto:
+
     def __init__(self, data: dict):
         self.data = data
         self.companion = data['companion']
@@ -149,6 +154,7 @@ class ParticipantDto:
         self.traits = [TraitDto(trait) for trait in data['traits']]
         self.units = [UnitDto(unit) for unit in data['units']]
 
+
 class TraitDto:
     """TraitDto
 
@@ -158,6 +164,7 @@ class TraitDto:
     tier_current: Current active tier for the trait.
     tier_total:	  Total tiers for the trait.
     """
+
     def __init__(self, data: dict):
         self.name = data["name"]
         self.num_units = data["num_units"]
@@ -170,12 +177,14 @@ class TraitDto:
         """Trait level"""
         return Traits().get_trait_style(self.name, self.style)
 
+
 class UnitDto:
     """UnitDto class
 
     tier: star
     rarity: unit rarity
     """
+
     def __init__(self, data: dict):
         self.items = sorted(data['items'])
         self.character_id = data['character_id']

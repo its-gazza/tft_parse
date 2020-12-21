@@ -1,10 +1,11 @@
 import unittest
 import tft_parse
 
-class TestDictAdd(unittest.TestCase):   
+
+class TestDictAdd(unittest.TestCase):
     def test_dict_add_count(self):
         """Test dict_add_count()
-        
+
         Test inserting `0` once , `1` twice
         """
         output = {}
@@ -27,7 +28,7 @@ class TestRouteRegions(unittest.TestCase):
         for region in regions:
             with self.subTest(f"{region}"):
                 self.assertEqual(tft_parse.route_region(region), 'AMERICAS')
-    
+
     def test_route_asia(self):
         regions = ['KR', 'JP1']
         for region in regions:

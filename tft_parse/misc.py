@@ -5,8 +5,9 @@ def dict_add_count(dt: dict, key):
         dt[key] = 1
     else:
         dt[key] += 1
-    
+
     return dt
+
 
 def route_region(region: str):
     region = region.upper()
@@ -18,5 +19,6 @@ def route_region(region: str):
         return 'EUROPE'
     else:
         raise ValueError(f"{region} is not defined")
+
 
 regions = ['BR1', 'EUN1', 'EUW1', 'JP1', 'KR', 'LA1', 'LA2', 'NA1', 'OC1', 'TR1', 'RU']

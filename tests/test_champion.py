@@ -14,7 +14,7 @@ class TestChampion(unittest.TestCase):
 
     def test_parse_from_new(self):
         """New unit and parse three data"""
-        # ==== First parse ==== # 
+        # ==== First parse ==== #
         self.champion.parse_unit(tft_parse.UnitDto(self.data['units'][0]))
         # Item
         self.assertEqual(self.champion.item, {23: 1, 11: 1})
@@ -42,7 +42,7 @@ class TestChampion(unittest.TestCase):
         # Chosen
         self.assertEqual(self.champion.chosen, {'Set4_Shade': 1})
 
-        # ==== Third parse ==== # 
+        # ==== Third parse ==== #
         # Reuse data fdrom 2nd parse
         self.champion.parse_unit(tft_parse.UnitDto(self.data['units'][1]))
         # Item
@@ -62,7 +62,7 @@ class TestChampion(unittest.TestCase):
 
         This test will assume test_parse_from_new works correctly
         """
-        # ==== Create dummy to_dict() ==== # 
+        # ==== Create dummy to_dict() ==== #
         # Note below parse is the same as test_parse_from_new
         # Parse units
         self.champion.parse_unit(tft_parse.UnitDto(self.data['units'][0]))
@@ -75,12 +75,12 @@ class TestChampion(unittest.TestCase):
         self.assertEqual(self.champion.item_comb, {'[11, 23]': 1, '[22, 23, 79]': 2})
         self.assertEqual(self.champion.champion_occurrence, 3)
 
-        # ==== Parse from generated output ==== # 
+        # ==== Parse from generated output ==== #
         champion = tft_parse.Champion(self.data['character_id'], 4)
         champion.from_dict(output_dict)
         # Check if info is parsed correctly
         self.assertEqual(champion.to_dict(), self.champion.to_dict())
-        
+
         # ==== Parse unit ==== #
         champion.parse_unit(tft_parse.UnitDto(self.data['units'][0]))
         # Item
@@ -94,4 +94,3 @@ class TestChampion(unittest.TestCase):
         self.assertEqual(champion.tier, {1: 2, 3: 2})
         # Chosen
         self.assertEqual(champion.chosen, {'Set4_Shade': 2})
-        

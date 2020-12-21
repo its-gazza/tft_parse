@@ -38,5 +38,5 @@ class Trait:
         style_map = {0: 'none', 1: 'bronze', 2: 'silver', 3: 'gold', 4: 'chromatic'}
         style_name = style_map[style]
         style_min = self.__getattribute__(style_name)['min']
-        
+
         return f'{self.key}_{style_min}'

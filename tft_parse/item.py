@@ -5,6 +5,7 @@ from .tft_api_class import UnitDto
 from .misc import dict_add_count
 from . import current_tft_set
 
+
 class Item:
     def __init__(self, id: int, tft_set_number: int=current_tft_set):
         # Get item info

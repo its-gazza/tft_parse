@@ -5,6 +5,7 @@ from .tft_api_class import UnitDto
 from .misc import dict_add_count
 from . import current_tft_set
 
+
 class Champion:
     def __init__(self, championId, tft_set_number: int = current_tft_set):
         champion_json = Path(pkg_resources.resource_filename('tft_parse', f'data/{tft_set_number}/champions.json'))
@@ -22,11 +23,11 @@ class Champion:
         self.name = self.champion['name']
         self.cost = self.champion['cost']
         self.traits = self.champion['traits']
-        # ==== Initialise values ==== # 
+        # ==== Initialise values ==== #
         self.champion_occurrence = 0
         self.tier = {}
         # Items
-        self.item = {}  # Log item use 
+        self.item = {}  # Log item use
         self.item_1 = {}  # Log item use at 1 tier
         self.item_2 = {}  # Log item use at 2 tier
         self.item_3 = {}  # Log item use at 3 tier
@@ -54,7 +55,7 @@ class Champion:
         self.item_comb_3 = data['item_comb_3']
         # Chosen
         self.chosen = data['chosen']
-        
+
     def to_dict(self):
         """Convert to dict
 

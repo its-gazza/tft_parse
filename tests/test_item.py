@@ -2,6 +2,7 @@ import json
 import unittest
 import tft_parse
 
+
 class TestItem(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
@@ -42,7 +43,7 @@ class TestItem(unittest.TestCase):
 
         This test will assume test_parse_from_new works correctly
         """
-        # ==== Create dummy to_dict() ==== # 
+        # ==== Create dummy to_dict() ==== #
         # Note below parse is the same as test_parse_from_new
         # Parse units
         self.item.parse_unit(tft_parse.UnitDto(self.data['units'][0]))

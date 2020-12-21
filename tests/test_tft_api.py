@@ -1,4 +1,3 @@
-import pkg_resources
 import tft_parse
 import datetime
 import unittest
@@ -16,7 +15,7 @@ class TestMatch(unittest.TestCase):
         """Test parse info is correct"""
         self.assertIs(type(self.match), tft_parse.MatchDto)
         self.assertEqual(self.match.data, self.data)
-    
+
     def test_to_dict(self):
         """Test to_dict()"""
         output = self.match.to_dict()
@@ -59,7 +58,7 @@ class TestInfo(unittest.TestCase):
     def test_get_patch(self):
         """Test get_patch()"""
         self.assertEqual(self.info.get_patch(), '10.20')
-        
+
     def test_get_queue(self):
         """Test get_queue()"""
         self.assertEqual(self.info.get_queue(), 'Rank')
@@ -104,6 +103,7 @@ class TestInfo(unittest.TestCase):
         for player_traits in players_traits:
             self.assertIs(type(player_traits), str)
 
+
 class TestParticipant(unittest.TestCase):
     @classmethod
     def setUpClass(self):
@@ -114,12 +114,13 @@ class TestParticipant(unittest.TestCase):
     def test_parse(self):
         """Test parse info is correct"""
         self.assertIs(type(self.participants), tft_parse.ParticipantDto)
-        # Check traits 
+        # Check traits
         for i in self.participants.traits:
             self.assertIs(type(i), tft_parse.TraitDto)
-        # Check units 
+        # Check units
         for i in self.participants.units:
             self.assertIs(type(i), tft_parse.UnitDto)
+
 
 class TestTrait(unittest.TestCase):
     @classmethod
@@ -157,7 +158,7 @@ class TestUnit(unittest.TestCase):
         # Chosen name
         self.assertEqual(self.unit.chosen, "")
         self.assertEqual(self.unit_chosen.chosen, "Cultist")
-    
+
     def test_is_chosen(self):
         """Test is_chosen()"""
         self.assertFalse(self.unit.is_chosen())
