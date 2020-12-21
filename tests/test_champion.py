@@ -10,6 +10,3 @@ class TestChampion(unittest.TestCase):
             cls.data = json.load(f)
 
         cls.champion = tft_parse.Champion(cls.data['character_id'])
-
-    def test(self):
-        self.champion.parse_unit()
