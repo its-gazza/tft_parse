@@ -104,25 +104,3 @@ class Champion:
 
         # ==== Tier ==== #
         self.tier = dict_add_count(self.tier, unit.tier)
-
-    @staticmethod
-    def dict_add_count(dt: dict, key):
-        """Static method to add count to a dict given a key"""
-        if dt.get(key) is None:
-            dt[key] = 1
-        else:
-            dt[key] += 1
-        
-        return dt
-
-if __name__ == "__main__":
-    with open('./lib/match.json') as f:
-        data = json.load(f)
-
-    unit = UnitDto()
-    unit.parse_info(data['info']['participants'][0]['units'][1])
-
-    champion = Champion(unit.character_id)
-    print(champion.to_dict())
-    champion.parse_unitdto(unit)
-    champion.parse_unitdto(unit)

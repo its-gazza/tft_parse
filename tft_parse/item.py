@@ -1,11 +1,15 @@
 import json
+import pkg_resources
+from pathlib import Path
 from .tft_api_class import UnitDto
 from .misc import dict_add_count
+from . import current_tft_set
 
 class Item:
-    def __init__(self, id: int):
+    def __init__(self, id: int, tft_set_number: int=current_tft_set):
         # Get item info
-        with open('./data/items.json', 'r') as f:
+        items_json = Path(pkg_resources.resource_filename('tft_parse', f'data/{tft_set_number}/items.json'))
+        with open(items_json, 'r') as f:
             items = json.loads(f.read())
         item = [item for item in items if item.get('id') == id]
         if len(item) == 0:

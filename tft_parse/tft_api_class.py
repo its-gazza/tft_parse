@@ -3,7 +3,7 @@ import json
 from datetime import datetime
 from itertools import chain
 from .misc import route_region
-from .data_class import Traits
+from .trait import Traits
 
 class MatchDto:
     def __init__(self, match: dict):
@@ -189,7 +189,7 @@ class UnitDto:
     def is_chosen(self) -> bool:
         """Determine if unit is chosen"""
         # Check if info is passed
-        if self.chosen is None:
+        if self.chosen is None:  # pragma: no cover
             raise ValueError("self.chosen is None")
 
         if self.chosen == "":

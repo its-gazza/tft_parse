@@ -1,0 +1,153 @@
+{
+    "companion": {
+        "content_ID": "816f170e-1aab-4af4-a7d2-d161e21cb8ea",
+        "skin_ID": 3,
+        "species": "PetAoShin"
+    },
+    "gold_left": 21,
+    "last_round": 38,
+    "level": 8,
+    "placement": 1,
+    "players_eliminated": 3,
+    "puuid": "43Y_ECkMqld_QZH_2YfSWu2y95eztgCA514ozI3tUQgZyol_Ax9xK-2Y_g9Ot2deE0BMWtUcI-dkMQ",
+    "time_eliminated": 2199.445556640625,
+    "total_damage_to_players": 181,
+    "traits": [
+        {
+            "name": "Cultist",
+            "num_units": 1,
+            "style": 0,
+            "tier_current": 0,
+            "tier_total": 3
+        },
+        {
+            "name": "Divine",
+            "num_units": 2,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 4
+        },
+        {
+            "name": "Duelist",
+            "num_units": 6,
+            "style": 3,
+            "tier_current": 3,
+            "tier_total": 4
+        },
+        {
+            "name": "Set4_Adept",
+            "num_units": 2,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 3
+        },
+        {
+            "name": "Set4_Enlightened",
+            "num_units": 2,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 3
+        },
+        {
+            "name": "Set4_Exile",
+            "num_units": 1,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 2
+        },
+        {
+            "name": "Set4_Mystic",
+            "num_units": 2,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 3
+        },
+        {
+            "name": "Set4_Ninja",
+            "num_units": 1,
+            "style": 1,
+            "tier_current": 1,
+            "tier_total": 2
+        },
+        {
+            "name": "Warlord",
+            "num_units": 1,
+            "style": 0,
+            "tier_current": 0,
+            "tier_total": 3
+        }
+    ],
+    "units": [
+        {
+            "character_id": "TFT4_Fiora",
+            "items": [],
+            "name": "",
+            "rarity": 0,
+            "tier": 2
+        },
+        {
+            "character_id": "TFT4_Jax",
+            "chosen": "Duelist",
+            "items": [
+                66,
+                25,
+                15
+            ],
+            "name": "",
+            "rarity": 1,
+            "tier": 3
+        },
+        {
+            "character_id": "TFT4_Janna",
+            "items": [],
+            "name": "",
+            "rarity": 1,
+            "tier": 2
+        },
+        {
+            "character_id": "TFT4_Kalista",
+            "items": [
+                26,
+                79
+            ],
+            "name": "",
+            "rarity": 2,
+            "tier": 2
+        },
+        {
+            "character_id": "TFT4_XinZhao",
+            "items": [],
+            "name": "",
+            "rarity": 2,
+            "tier": 2
+        },
+        {
+            "character_id": "TFT4_Shen",
+            "items": [],
+            "name": "",
+            "rarity": 3,
+            "tier": 2
+        },
+        {
+            "character_id": "TFT4_LeeSin",
+            "items": [
+                17,
+                36,
+                46
+            ],
+            "name": "",
+            "rarity": 4,
+            "tier": 2
+        },
+        {
+            "character_id": "TFT4_Yone",
+            "items": [
+                4,
+                14
+            ],
+            "name": "",
+            "rarity": 4,
+            "tier": 2
+        }
+    ]
+}
