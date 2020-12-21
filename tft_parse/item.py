@@ -26,6 +26,7 @@ class Item:
     def from_dict(self, data: dict) -> None:
         self.champion = data['champion']
         self.item_combination = data['item_combination']
+        self.item_other = data['item_other']
 
     def to_dict(self):
         output = {

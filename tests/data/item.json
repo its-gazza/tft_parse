@@ -1,5 +1,4 @@
 {
-    "character_id": "TFT4_Zed",
     "units": [
         {
             "character_id": "TFT4_Zed",
@@ -12,16 +11,15 @@
             "tier": 1
         },
         {
-            "character_id": "TFT4_Zed",
-            "chosen": "Set4_Shade",
+            "character_id": "TFT4_XinZhao",
             "items": [
-                22,
-                23,
-                79
+                11,
+                36,
+                46
             ],
             "name": "",
-            "rarity": 1,
-            "tier": 3
+            "rarity": 2,
+            "tier": 2
         }
     ]
 }

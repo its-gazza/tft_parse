@@ -18,36 +18,42 @@ class Champion:
         else:
             self.champion = champion[0]
         # Champion data
+        self.championId = self.champion['championId']
         self.name = self.champion['name']
         self.cost = self.champion['cost']
         self.traits = self.champion['traits']
-        # Initialise values
+        # ==== Initialise values ==== # 
         self.champion_occurrence = 0
+        self.tier = {}
         # Items
         self.item = {}  # Log item use 
         self.item_1 = {}  # Log item use at 1 tier
         self.item_2 = {}  # Log item use at 2 tier
         self.item_3 = {}  # Log item use at 3 tier
         self.item_comb = {}  # Log item combaination
-        self.item_1_comb = {}  # Log item combination at 1 tier
-        self.item_2_comb = {}  # Log item combination at 2 tier
-        self.item_3_comb = {}  # Log item combination at 3 tier
+        self.item_comb_1 = {}  # Log item combination at 1 tier
+        self.item_comb_2 = {}  # Log item combination at 2 tier
+        self.item_comb_3 = {}  # Log item combination at 3 tier
         # Chosen
         self.chosen = {}
-        # Tier
-        self.tier = {}
 
     def from_dict(self, data: dict) -> None:
         """Parse data from previous data"""
+        # Occurance
         self.champion_occurrence = data['champion_occurrence']
+        self.tier = data['tier']
+        # Item
         self.item = data['item']
         self.item_1 = data['item_1']
         self.item_2 = data['item_2']
         self.item_3 = data['item_3']
+        # Item combinations
         self.item_comb = data['item_comb']
-        self.item_1_comb = data['item_1_comb']
-        self.item_2_comb = data['item_2_comb']
-        self.item_3_comb = data['item_3_comb']
+        self.item_comb_1 = data['item_comb_1']
+        self.item_comb_2 = data['item_comb_2']
+        self.item_comb_3 = data['item_comb_3']
+        # Chosen
+        self.chosen = data['chosen']
         
     def to_dict(self):
         """Convert to dict
@@ -57,6 +63,7 @@ class Champion:
         """
         output = {
             'champion': self.champion,
+            'championId': self.championId,
             'name': self.name,
             'cost': self.cost,
             'traits': self.traits,
@@ -66,9 +73,9 @@ class Champion:
             'item_2': self.item_2,
             'item_3': self.item_3,
             'item_comb': self.item_comb,
-            'item_1_comb': self.item_1_comb,
-            'item_2_comb': self.item_2_comb,
-            'item_3_comb': self.item_3_comb,
+            'item_comb_1': self.item_comb_1,
+            'item_comb_2': self.item_comb_2,
+            'item_comb_3': self.item_comb_3,
             'chosen': self.chosen,
             'tier': self.tier
         }
@@ -77,10 +84,12 @@ class Champion:
 
     def parse_unit(self, unit: UnitDto):
         """Parse UnitDto"""
+        if unit.character_id != self.championId:
+            raise ValueError(f"{unit.character_id} is not the same as {self.championId}")
         # ==== Item ==== #
         # Get tier level item
         item_indv_tier = self.__getattribute__(f"item_{unit.tier}")
-        item_comb_tier = self.__getattribute__(f"item_{unit.tier}_comb")
+        item_comb_tier = self.__getattribute__(f"item_comb_{unit.tier}")
 
         # Add item to dict
         # Inidividual items
@@ -101,6 +110,4 @@ class Champion:
 
         # ==== Occurance ==== #
         self.champion_occurrence += 1
-
-        # ==== Tier ==== #
         self.tier = dict_add_count(self.tier, unit.tier)

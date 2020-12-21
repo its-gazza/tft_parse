@@ -36,7 +36,7 @@ class MetadataDto:
         if len(region_regex) > 0:
             return region_regex[0]
         else:
-            return None
+            raise ValueError(f"Unable to regex match {self.match_id}")
 
     def get_route_region(self):
         """Get routing region from match_id"""
@@ -60,21 +60,18 @@ class InfoDto:
         if len(patch_regex) > 0:
             return patch_regex[0]
         else:
-            return None
+            raise ValueError(f"Unable to regex match {self.game_version}")
 
     def get_queue(self):
         """Parse game's type"""
         queue_id = int(self.queue_id)
-        if queue_id == 1090:
-            return 'Normal'
-        elif queue_id == 1100:
-            return 'Rank'
-        elif queue_id == 1111:
-            return 'Test'
-        elif queue_id == 1110:
-            return 'Tutorial'
-        else:
-            return None
+        queue_dict = {
+            1090: 'Normal',
+            1100: 'Rank',
+            1111: 'Test',
+            1110: 'Tutorial'
+        }
+        return queue_dict[queue_id]
 
     def get_game_date(self):
         """Get game's datetime"""
