@@ -45,7 +45,7 @@ class Item:
         # ==== Additional items ==== #
         # Since we're looking at additional items, we will remove the item itself
         # to reduce duplication
-        items = unit.items
+        items = unit.items.copy()
         items.remove(self.item)
         # Item combinations
         self.item_combination = dict_add_count(self.item_combination, str(items))
