@@ -3,6 +3,7 @@ from datetime import datetime
 from itertools import chain
 from .misc import route_region
 from .trait import Traits
+from . import current_tft_set
 
 
 class MatchDto:
@@ -51,12 +52,21 @@ class InfoDto:
         self.game_datetime = data['game_datetime']
         self.game_length = data['game_length']
         self.game_version = data['game_version']
-        self.tft_set_number = data['tft_set_number']
         self.queue_id = data['queue_id']
         # Parse
         self.patch = self.get_patch()
         self.queue = self.get_queue()
-        self.participants = [ParticipantDto(participant) for participant in data['participants']]
+        self.tft_set_number = self.check_set_number(data['tft_set_number'], self.patch)
+        self.participants = [ParticipantDto(participant, self.tft_set_number) for participant in data['participants']]
+
+    @staticmethod
+    def check_set_number(set_number, patch):
+        """Update set number to 4.5"""
+        # Set number for patch 4.5 is still 4, so need to manually override
+        if set_number == '4.5' and patch >= '11.2':
+            return '4.5' 
+        else:
+            return set_number
 
     def get_patch(self):
         """Get patch number"""
@@ -140,7 +150,7 @@ class InfoDto:
 
 class ParticipantDto:
 
-    def __init__(self, data: dict):
+    def __init__(self, data: dict, tft_set_number: int = current_tft_set):
         self.data = data
         self.companion = data['companion']
         self.gold_left = data["gold_left"]
@@ -151,7 +161,7 @@ class ParticipantDto:
         self.puuid = data["puuid"]
         self.time_eliminated = data["time_eliminated"]
         self.total_damage_to_players = data["total_damage_to_players"]
-        self.traits = [TraitDto(trait) for trait in data['traits']]
+        self.traits = [TraitDto(trait, tft_set_number) for trait in data['traits']]
         self.units = [UnitDto(unit) for unit in data['units']]
 
 
@@ -165,17 +175,18 @@ class TraitDto:
     tier_total:	  Total tiers for the trait.
     """
 
-    def __init__(self, data: dict):
+    def __init__(self, data: dict, tft_set_number:int = current_tft_set):
         self.name = data["name"]
         self.num_units = data["num_units"]
         self.style = data["style"]
         self.tier_current = data["tier_current"]
         self.tier_total = data["tier_total"]
+        self.set_number = tft_set_number
         self.tier_name = self.trait_tier()
 
     def trait_tier(self):
         """Trait level"""
-        return Traits().get_trait_style(self.name, self.style)
+        return Traits(self.set_number).get_trait_style(self.name, self.style)
 
 
 class UnitDto:
