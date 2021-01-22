@@ -63,7 +63,8 @@ class InfoDto:
     def check_set_number(set_number, patch):
         """Update set number to 4.5"""
         # Set number for patch 4.5 is still 4, so need to manually override
-        if set_number == '4.5' and patch >= '11.2':
+        print(f"{set_number} {set_number ==4 }, {patch} {patch >= '11.2'}")
+        if set_number == 4 and patch >= '11.2':
             return '4.5'
         else:
             return set_number
