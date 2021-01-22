@@ -64,7 +64,7 @@ class InfoDto:
         """Update set number to 4.5"""
         # Set number for patch 4.5 is still 4, so need to manually override
         if set_number == '4.5' and patch >= '11.2':
-            return '4.5' 
+            return '4.5'
         else:
             return set_number
 
@@ -175,7 +175,7 @@ class TraitDto:
     tier_total:	  Total tiers for the trait.
     """
 
-    def __init__(self, data: dict, tft_set_number:int = current_tft_set):
+    def __init__(self, data: dict, tft_set_number: int = current_tft_set):
         self.name = data["name"]
         self.num_units = data["num_units"]
         self.style = data["style"]
