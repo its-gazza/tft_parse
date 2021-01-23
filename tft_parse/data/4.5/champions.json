@@ -83,7 +83,7 @@
   },
   {
     "name": "Diana",
-    "championId": "TFT4_Diana",
+    "championId": "TFT4b_Diana",
     "cost": 1,
     "traits": [
       "Set4_Spirit",
@@ -193,7 +193,7 @@
   },
   {
     "name": "Kindred",
-    "championId": "TFT4_Kindred",
+    "championId": "TFT4b_Kindred",
     "cost": 3,
     "traits": [
       "Set4_Spirit",
@@ -229,7 +229,7 @@
   },
   {
     "name": "Morgana",
-    "championId": "TFT4_Morgana",
+    "championId": "TFT4b_Morgana",
     "cost": 4,
     "traits": [
       "Set4_Enlightened",
@@ -514,7 +514,7 @@
   },
   {
     "name": "Zed",
-    "championId": "TFT4_Zed",
+    "championId": "TFT4b_Zed",
     "cost": 2,
     "traits": [
       "Set4_Ninja",
@@ -528,6 +528,13 @@
     "traits": [
       "Cultist",
       "Set4_Mystic"
+    ]
+  },
+  {
+    "name": "Training Dummy",
+    "championId": "TFT_TrainingDummy",
+    "cost": 0,
+    "traits": [
     ]
   }
 ]
